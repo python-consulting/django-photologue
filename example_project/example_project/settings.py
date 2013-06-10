@@ -108,14 +108,5 @@ INSTALLED_APPS = [
 
 SOUTH_TESTS_MIGRATE = False
 
-# Need to set here the IP of the host (gurgeh).
-INTERNAL_IPS = ('10.0.2.2',)
-
-# Django debug toolbar.
-MIDDLEWARE_CLASSES.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
-INSTALLED_APPS.append('debug_toolbar')
-DEBUG_TOOLBAR_CONFIG = {
-    'INTERCEPT_REDIRECTS': False,
-}
 
 

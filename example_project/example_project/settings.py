@@ -1,6 +1,7 @@
 # Global settings for photologue example project.
 
 import os
+from photologue import PHOTOLOGUE_TEMPLATE_DIR
 
 DEBUG = TEMPLATE_DEBUG = True
 
@@ -69,9 +70,9 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'example_project.urls'
 
-from photologue import PHOTOLOGUE_TEMPLATE_DIR
 TEMPLATE_DIRS = (
     os.path.join(TOP_FOLDER, 'example_project/templates'),
+    os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'contrib/bootstrap/templates'),
     PHOTOLOGUE_TEMPLATE_DIR
 )
 
@@ -97,6 +98,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    # Note: added sitemaps to the INSTALLED_APPS just so that unit tests run,
+    # but not actually added a sitemap in urls.py.
+    'django.contrib.sitemaps',
     'photologue',
     'south',
     'example_project',

@@ -72,8 +72,8 @@ ROOT_URLCONF = 'example_project.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(TOP_FOLDER, 'example_project/templates'),
-    os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'contrib/bootstrap/templates'),
-    PHOTOLOGUE_TEMPLATE_DIR
+    os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'templates'),
+    os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'contrib/old_style_templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -107,4 +107,15 @@ INSTALLED_APPS = [
 ]
 
 SOUTH_TESTS_MIGRATE = False
+
+# Need to set here the IP of the host (gurgeh).
+INTERNAL_IPS = ('10.0.2.2',)
+
+# Django debug toolbar.
+MIDDLEWARE_CLASSES.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+INSTALLED_APPS.append('debug_toolbar')
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
+
 

@@ -44,9 +44,11 @@ Third-party contributions
 Photologue has a 'contrib' folder that includes some
 useful tweaks to the base project. At the moment, we have just one contribution:
 
-Bootstrap templates
+Old-style templates
 ~~~~~~~~~~~~~~~~~~~
-Replaces the normal templates with a new set that work well with `Bootstrap <http://twitter.github.io/bootstrap/index.html>`_.
+Replaces the normal templates with the templates that used to come with
+Photologue 2.X. Use these if you have an existing project that extends these 
+'old-style' templates.
 
 To use these, edit your ``TEMPLATE_DIRS`` setting::
 
@@ -54,10 +56,8 @@ To use these, edit your ``TEMPLATE_DIRS`` setting::
     from photologue import PHOTOLOGUE_TEMPLATE_DIR
     TEMPLATE_DIRS = (
         ...
-        os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'contrib/bootstrap/templates'),
+        os.path.join(PHOTOLOGUE_TEMPLATE_DIR, 'contrib/old_style_templates'),
         ... other folders containing Photologue templates should come after...
     )
 
-The templates are incomplete - for example, we are missing templates for date-filtered galleries and photos.
-Pull requests are welcome!
     

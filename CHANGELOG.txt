@@ -4,7 +4,8 @@ Changelog for django-photologue
 3.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- The Twitter-Bootstrap templates become the default; the previous templates are
+  moved to 'contrib'.
 
 2.7 (unreleased)
 ----------------

@@ -15,10 +15,6 @@ urls.py::
                 }
     etc...
 
-.. note::
-    
-    There is also a PhotologueSitemap class which combines the above 2 classes,
-    but it will be removed in Photologue 3.0.
 """
 import warnings
 
@@ -50,17 +46,4 @@ class PhotoSitemap(Sitemap):
     def lastmod(self, obj):
             return obj.date_added
 
-class PhotologueSitemap(Sitemap):
-    priority = 0.5
-
-    def items(self):
-        warnings.warn(DeprecationWarning('PhotologueSitemap will be replaced in '
-        'Photologue 3.0 by GallerySitemap and PhotoSitemap.'))
-        # The following code is very basic and will probably cause problems with
-        # large querysets.
-        return list(Gallery.objects.filter(is_public=True)) \
-                                    + list(Photo.objects.filter(is_public=True))
-
-    def lastmod(self, obj):
-            return obj.date_added
 

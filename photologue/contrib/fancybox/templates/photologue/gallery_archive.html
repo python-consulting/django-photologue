@@ -1,0 +1,18 @@
+{% extends "templates/photologue/gallery_archive.html" %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function() {
+        	{% for gallery in latest %}
+            $(".gallery{{ gallery.id }}").fancybox();
+            {% endfor %}
+        });
+    </script>
+{% endblock extra_js %}
+
+{% block photo_a %}
+	<a href="{{ photo.get_display_url }}" class="gallery{{ gallery.id }}" rel="group"
+	title="{{ photo.caption }}">
+{% endblock photo_a %}
+

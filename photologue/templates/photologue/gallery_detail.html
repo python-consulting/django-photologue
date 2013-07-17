@@ -12,7 +12,7 @@
 	<ul class="thumbnails">
 		{% for photo in object.public %}
 			<li class="{% block photologue-gallery-li-class %}span3{% endblock %}">
-				<a href="{{ photo.get_absolute_url }}" class="thumbnail">
+				{% block photo_a %}<a href="{{ photo.get_absolute_url }}" class="thumbnail">{% endblock photo_a %}
 					<img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}">
 				</a>
 			</li>

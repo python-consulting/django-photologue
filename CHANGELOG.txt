@@ -7,6 +7,7 @@ Changelog for django-photologue
 - The Twitter-Bootstrap templates become the default; the previous templates are
   moved to 'contrib'.
 - Removed deprecated PhotologueSitemap.
+- Added in 'contrib' a photo gallery that uses Fancybox (a Lightbox clone).
 
 2.7 (unreleased)
 ----------------

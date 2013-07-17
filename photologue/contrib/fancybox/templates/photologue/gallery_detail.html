@@ -1,0 +1,18 @@
+{% extends "templates/photologue/gallery_detail.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script type="text/javascript">
+	    $(document).ready(function() {
+	        $(".gallery").fancybox();
+	    });
+    </script>
+{% endblock extra_js %}
+
+{% block photo_a %}
+	<a href="{{ photo.get_display_url }}" class="gallery" rel="group"
+	title="{{ photo.caption }}">
+{% endblock photo_a %}
+

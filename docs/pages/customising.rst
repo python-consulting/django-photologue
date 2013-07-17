@@ -53,7 +53,7 @@ and Photo in the admin. Simply set the setting to ``True``.
 Third-party contributions
 -------------------------
 Photologue has a 'contrib' folder that includes some
-useful tweaks to the base project. At the moment, we have just one contribution:
+useful tweaks to the base project.
 
 Old-style templates
 ~~~~~~~~~~~~~~~~~~~
@@ -71,4 +71,54 @@ To use these, edit your ``TEMPLATE_DIRS`` setting::
         ... other folders containing Photologue templates should come after...
     )
 
-    
+Fancybox
+~~~~~~~~
+`Fancybox <http://fancyapps.com/fancybox/>`_ is a jQuery plugin that offers a
+lightbox-style zooming. You can use it on the gallery pages, and remove
+the photo detail pages entirely.
+
+1. Edit your ``TEMPLATE_DIRS`` setting::
+ 
+    from photologue import PHOTOLOGUE_APP_DIR
+    TEMPLATE_DIRS = (
+        ...
+        os.path.join(PHOTOLOGUE_APP_DIR, 'contrib/fancybox/templates'),
+        PHOTOLOGUE_APP_DIR,
+        ...
+    )
+
+2. Add to ``STATICFILES_DIRS``::
+
+    STATICFILES_DIRS = (
+        ...
+        os.path.join(PHOTOLOGUE_APP_DIR, 'contrib/fancybox/static'),
+    )
+
+
+3. Ensure that your project provides the following:
+
+   - jQuery is loaded.
+   - The site ``base.html`` template provides a ``extra_js`` block.
+
+4. The ``/photo/`` urls can be disabled; edit your project ``urls.py`` so that any call
+   to a photo page gets redirected to the galleries view::
+
+    from django.views.generic.base import RedirectView
+    from django.core.urlresolvers import reverse_lazy
+
+    ...
+    url(r'^photologue/photo/', RedirectView.as_view(url=reverse_lazy('pl-gallery-archive'))),
+    url(r'^photologue/', include('photologue.urls')),
+    ...
+
+5. If you use sitemaps, remember to only use ``GallerySitemap`` - do not use ``PhotoSitemap``. 
+
+That's it; in practice, you will very probably want to customise Fancybox to your site,
+which means that you will write your own custom templates - those provided will help
+as examples.
+
+.. note::
+
+    * Disabling the photo views breaks the unit tests - when we're all running
+      on Python 3 we'll be able to add skipTest to the concerned unit tests and
+      skip them.

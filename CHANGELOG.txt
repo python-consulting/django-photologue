@@ -12,9 +12,14 @@ Changelog for django-photologue
 2.7 (unreleased)
 ----------------
 
+Please note:
+
+1. All settings are now prefixed with 'PHOTOLOGUE_'. Please check that you are not
+affected by this.
+
 - Fixed issue #56, Gallery pagination is broken.
 - Photologue now works with Python 3.
-- Added a set of templates that work well with Twitter-Bootstrap, and used
+- Added a set of templates that work well with Twitter-Bootstrap 3, and used
   them for the 'example_project'.
 - Fixed issue #64 (allow installation without installing Pillow).
 - Optional use of CKEditor.
@@ -22,6 +27,10 @@ Changelog for django-photologue
 - New translation for Slovak.
 - Bugfix: allow viewing latest galleries/latest photos pages even if they 
   are empty.
+- Started using factory-boy - makes unit tests a bit easier to read.
+- Added settings to customise pagination count on list pages.
+- Documented all settings.
+- All settings are now prefixed with 'PHOTOLOGUE_'.
 
 2.6.1 (2013-05-19)
 ------------------

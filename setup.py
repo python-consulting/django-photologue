@@ -6,6 +6,7 @@ import photologue
 ROOT_DIR = os.path.dirname(__file__)
 SOURCE_DIR = os.path.join(ROOT_DIR)
 
+
 def get_requirements(requirements_file):
     with open(requirements_file) as f:
         required = [line.split('#')[0] for line in f.read().splitlines()]
@@ -39,6 +40,7 @@ setup(
                  'License :: OSI Approved :: BSD License',
                  'Operating System :: OS Independent',
                  'Programming Language :: Python',
+                 'Programming Language :: Python :: 3',
                  'Topic :: Utilities'],
     install_requires=get_requirements(os.path.join(ROOT_DIR, 'requirements.txt'))
 )

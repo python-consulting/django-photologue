@@ -71,7 +71,6 @@ ROOT_URLCONF = 'example_project.urls'
 TEMPLATE_DIRS = (
     os.path.join(TOP_FOLDER, 'example_project/templates'),
     os.path.join(PHOTOLOGUE_APP_DIR, 'templates'),
-    os.path.join(PHOTOLOGUE_APP_DIR, 'contrib/old_style_templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -101,6 +100,3 @@ INSTALLED_APPS = [
 ]
 
 SOUTH_TESTS_MIGRATE = False
-
-
-

@@ -532,6 +532,8 @@ class ImageModel(models.Model):
             pass
 
     def save(self, *args, **kwargs):
+        # Saving the actual image file to correctly set the path attribute before parsing EXIF data
+        super(ImageModel, self).save(*args, **kwargs)
         if self.date_taken is None:
             try:
                 exif_date = self.EXIF.get('EXIF DateTimeOriginal', None)
